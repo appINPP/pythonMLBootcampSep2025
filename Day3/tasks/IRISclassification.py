@@ -42,7 +42,9 @@ plot_tree(mod_dt, feature_names = fn, class_names = cn, filled = True);
 plt.show()
 
 #Check the prediction results is through a confusion matrix:
-disp = metrics.plot_confusion_matrix(mod_dt, X_test, y_test,
+#disp = metrics.plot_confusion_matrix(mod_dt, X_test, y_test,
+from sklearn.metrics import ConfusionMatrixDisplay
+disp = ConfusionMatrixDisplay.from_estimator(mod_dt, X_test, y_test,
                                  display_labels=cn,
                                  cmap=plt.cm.Blues,
                                  normalize=None)
